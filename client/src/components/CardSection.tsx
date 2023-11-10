@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "../styles/cardSection.css";
-import food1 from "../assets/food1.jpeg";
+
 import { FaEdit } from "react-icons/fa";
+import Image from "../assets/restaurant-background.jpg";
 import { BsPlusSquare } from "react-icons/bs";
 import { useCart } from "react-use-cart";
 
 interface Props {
   name?: string;
   description?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   item: any;
   price?: number;
   // onEdit: (name: string, description: string) => void;
@@ -18,8 +20,8 @@ const CardSection: React.FC<Props> = ({ name, description, item, price }) => {
 
   return (
     <>
-      <div className="card-section-container">
-        <img src={food1} alt="food" />
+      <div className="card-section-container ">
+        <img src={Image} alt="food" />
         <div className="text-area">
           <h2>{name}</h2>
           <p>{description}</p>
@@ -35,7 +37,7 @@ const CardSection: React.FC<Props> = ({ name, description, item, price }) => {
           />
         </div>
         <div className="mobile-icons">
-          <FaEdit /> <BsPlusSquare />
+          <FaEdit /> <BsPlusSquare onClick={() => addItem(item)} />
         </div>
       </div>
     </>
@@ -44,26 +46,4 @@ const CardSection: React.FC<Props> = ({ name, description, item, price }) => {
 
 export default CardSection;
 
-// {showModal && (
-//   <div className="modal-overlay">
-//     <div className="modal">
-//       <h3>Edit Food Item</h3>
-//       <label>Name</label>
-//       <input
-//         type="text"
-//         value={editedName}
-//         onChange={(e) => setEditedName(e.target.value)}
-//       />
-//       <label>Description</label>
-//       <input
-//         type="text"
-//         value={editedDescription}
-//         onChange={(e) => setEditedDescription(e.target.value)}
-//       />
-//       <div className="modal-buttons ">
-//         <button onClick={handleSaveClick}>Save</button>
-//         <button onClick={handleCancelClick}>Cancel</button>
-//       </div>
-//     </div>
-//   </div>
-// )}
+

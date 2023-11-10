@@ -10,10 +10,10 @@ const VendorLoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [passwordValidation, setPasswordValidation] = useState(true);
+    const [, setPasswordValidation] = useState(true);
 	// const [showPassword, setShowPassword] = useState(false);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [formValid, setFormValid] = useState(false);
+    const [, setFormValid] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const [showPassword, setShowPassword] = useState(true)

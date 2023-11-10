@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import "../styles/Dash.css";
 import GeoChart from "../charts/GeoChart";
 import PieChart from "../charts/PieChart";
-import HBarChart from "../charts/HBarChart";
+// import HBarChart from "../charts/HBarChart";
 import CountUp from "react-countup";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
@@ -17,7 +17,7 @@ import AreaChart from "../charts/AreaChart";
 
 export default function Home() {
   const dispatch = useAppDispatch();
-  const { allFoodCount, isLoading } = useAppSelector((state) => state.allFoodCount);
+  const { allFoodCount} = useAppSelector((state) => state.allFoodCount);
 
   const { totalFoods } = useAppSelector((state) => state.totalFood);
 

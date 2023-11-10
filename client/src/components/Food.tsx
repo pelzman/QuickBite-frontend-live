@@ -1,4 +1,4 @@
-import React from 'react'
+
 
  import FoodImg from "../assets/mobileFrontpg.jpg"
 import styles from "../styles/food.module.css"

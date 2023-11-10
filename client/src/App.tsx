@@ -35,7 +35,7 @@ import VendorCreatesFood from "./components/VendorCreatesFood";
 import EditVendor from "./components/EditVendor";
 import UserLandingpg from "./pages/userLandingpg";
 import { CartProvider } from "react-use-cart";
-import { ProtectRoute } from "./utility/auth";
+
 import CheckOut from "./pages/CheckOut";
 import UserChangePassword from "./components/userChangePassword";
 import OrdersModal from "./components/VendorAllFoodModal";
@@ -94,7 +94,9 @@ function App() {
             <Route path="/popular" element={<PopularResPage />}></Route>
             <Route path="/popularfoods" element={<PopularFoodsPage />}></Route>
             <Route path="/checkout" element={<CheckOut />}></Route>
-            <Route path="/vendorviewallfood" element={<OrdersModal />}></Route>
+            <Route path="/vendorviewallfood" element={<OrdersModal  id={""} foodid={""} food_name={""} quantity={0} amount={0} status={""} userId={""} vendorId={""} isPaid={false} address={""} onClose={function (): void {
+              console.log("New Error");
+            } } />}></Route>
             <Route path="/userorder" element={<UserOrderComponent />}></Route>
           </Routes>
           <Footer />

@@ -2,10 +2,9 @@
 import { AiFillCloseCircle } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useCart } from "react-use-cart";
-import "./cartmodal.css";
-import { useNavigate } from "react-router-dom";
 import egusiSoup from "../assets/istockphoto-1386522276-1024x1024.jpeg";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export interface Product {
   id: number;
@@ -42,86 +41,87 @@ function ShoppingCart({ onClose }: ShoppingCartProps) {
   }
 
   return (
-    <div className="the-modal ">
-      <div className="the-shoppingCart">
-        <div className="the-header">
-          <h2 className="the-text-xl font-semibold">
+    <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
+      <div className="bg-white p-8 rounded-lg w-full max-w-md the-shoppingCart">
+        <div className="flex items-center justify-between mb-4 the-header">
+          <h2 className="text-xl font-semibold the-text-xl">
             Quickbite Cart{" "}
-            <span style={{ fontWeight: "normal" }}>
-              {" "}
+            <span className="font-normal">
               ({totalItems}) Items({totalUniqueItems})
             </span>
           </h2>
-          <button className="the-product-remove-btn" onClick={onClose}>
+          <button onClick={onClose} className="the-product-remove-btn">
             <AiFillCloseCircle size={40} />
           </button>
         </div>
-        <div className="the-cart-products">
+        <div className="the-cart-products max-h-300 overflow-y-auto">
           {isEmpty && (
             <span className="the-empty-text">
               Your basket is currently empty
             </span>
           )}
+         
           {items.map((product: any) => (
-            <div className="the-cart-product" key={product.id}>
-              <div className="the-product-in">
-                <img
-                  src={egusiSoup}
-                  alt={product.name}
-                  className="the-product-img"
-                />
-                <span className="the-product-price">N{product.price}</span>
-                <p className="the-product-info">{product.name}</p>
-                <p className="the-product-info-amt">
+            <div key={product.id} className="the-cart-product flex items-center mb-4">
+              <img
+                src={egusiSoup}
+                alt={product.name}
+                className="w-16 h-16 object-cover mr-4 rounded"
+              />
+              <div className="flex-1">
+                <span className="block text-gray-700 the-product-info">{product.name}</span>
+                <span className="block text-gray-500 the-product-info-amt">
                   Amnt: N{product.price * product.quantity}
-                </p>
+                </span>
               </div>
-
-              <div className="the-counter">
+              <div className="flex items-center space-x-2 the-counter">
                 <button
-                  className="the-counter-btn"
                   onClick={() =>
                     updateItemQuantity(product.id, product.quantity - 1)
                   }
                   disabled={product.count === 0}
+                  className="the-counter-btn"
                 >
                   -
                 </button>
-                <span className="the-product-count">{product.quantity}</span>
+                <span className="the-product-count px-2 py-1 text-sm font-semibold">
+                  {product.quantity}
+                </span>
                 <button
-                  className="the-counter-btn"
                   onClick={() =>
                     updateItemQuantity(product.id, product.quantity + 1)
                   }
+                  className="the-counter-btn"
                 >
                   +
                 </button>
               </div>
               <button
-                className="the-remove-btn"
                 onClick={() => removeItem(product.id)}
+                className="the-remove-btn"
               >
                 <RiDeleteBin6Line size={20} id="the-remove-bin" />
               </button>
             </div>
           ))}
-
           {!isEmpty && (
             <>
-              <div className="totals">
-                <h3>Total: {cartTotal}</h3>
-                <button className="clear" onClick={() => emptyCart()}>
+              <div className="totals flex justify-end items-center">
+                <h3 className="text-lg font-semibold">Total: {cartTotal}</h3>
+                <button
+                  onClick={() => emptyCart()}
+                  className="clear text-red-600 hover:underline"
+                >
                   Clear Cart
                 </button>
               </div>
-
               <button
                 onClick={() => {
                   localStorage.getItem("user")
                     ? navigate("/checkout")
                     : toastNavigation();
                 }}
-                className="the-checkout-btn"
+                className="the-checkout-btn mt-4 px-4 py-2 bg-blue-600 text-white rounded w-full"
               >
                 Proceed to checkout
               </button>

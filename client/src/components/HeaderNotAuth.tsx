@@ -49,24 +49,12 @@ const Header = () => {
   const handleCartClose = () => {
     setCartVisibility(false);
   };
-  //   const menus = [
-  //     {
-  //       id: "Id",
-  //       Updateprofile: "Update profile",
-  //       Order: "Order",
-  //       Changepassword: "Change Password",
-  //       Dashboard: "Dashboard",
-  //     },
-  //   ];
-
-  //   const [dropdown, setDropDown] = useState(true);
-  //   const toggle = () => setDropDown(!dropdown);
 
   return (
-    <div>
+    <>
       <nav className={`${styles.navbar} `}>
         <div
-          className={`flex sm:items-center space-x-20 md:flex items-center justify-between mx-20 ${"animate__animated animate__backInDown"}`}
+          className={`flex sm:items-center md:space-x-20 md:flex items-center justify-between md:mx-20 ${"animate__animated animate__backInDown"}`}
         >
           <Link to="/">
             <div className={`${styles.logoContainer}`}>
@@ -81,28 +69,24 @@ const Header = () => {
               <button
                 className={`${styles.SignIn} bg-veryLightGray hover:bg-deepBlue hover:text-white`}
               >
-                Sign In
+                Login
               </button>
             </Link>
             <Link to="/register">
               <button className={`${styles.SignUp} bg-deepBlue `}>
-                Signup
+                Register
               </button>
             </Link>
-            {/* <GiShoppingBag
-              size={35}
-              className="the-shop"
-              onClick={() => setCartVisibility(!cartVisibility)}
-            /> */}
-            <div className="cartf">
+
+            <div className="cartf ">
               {!isEmpty && (
-                <div className="item-count">
+                <div className="item-count ">
                   <span>{totalItems}</span>
                 </div>
               )}
               <GiShoppingBag
                 size={35}
-                className="the-shop"
+                className="the-shop "
                 onClick={() => setCartVisibility(!cartVisibility)}
               />
             </div>
@@ -119,12 +103,25 @@ const Header = () => {
               <i className="fas fa-times"></i>
             )}
           </button>
+          <div className="cartf md:hidden">
+            {!isEmpty && (
+              <div className="item-count flex justify-start items-start absolute left-6">
+                <span>{totalItems}</span>
+              </div>
+            )}
+            <GiShoppingBag
+              size={35}
+              className="the-shop mr-[30px]"
+              onClick={() => setCartVisibility(!cartVisibility)}
+            />
+          </div>
         </div>
 
+
+
         <div
-          className={`${
-            collapse ? styles.mobileView : ""
-          } mt-20 md:hidden bg-deepBlue`}
+          className={`${collapse ? styles.mobileView : ""
+            } mt-20 md:hidden bg-deepBlue`}
         >
           <div className=" sm:hidden w-auto sm:self-center left-6 right-6 drop-shadow-md ">
             {/* <a href="#" className="mx-auto">Vendors</a> */}
@@ -134,19 +131,25 @@ const Header = () => {
         </div>
 
         <div
-          className={`${
-            collapse ? styles.mobileView : ""
-          } mt-20 md:hidden bg-deepBlue`}
+          className={`${collapse ? styles.mobileView : " "
+            } mt-[-60px] md:hidden bg-[#FFF] w-full `}
         >
-          <div className=" sm:hidden w-auto sm:self-center left-6 right-6 drop-shadow-md ">
+          <div className=" sm:hidden w-full px-[50px]  space-y-3 ">
             {/* <a href="#" className="mx-auto">Vendors</a> */}
+            <Link to="/login">
 
+              <button
+                className={` min-w-full md:w-0 rounded-none border-none mb-[30px] mt-[20px] text-deepBlue text-[26px] font-semibold not-italic`}
+              >
+                Login
+              </button>
+            </Link>
             <Link to="/register">
               <button
-                className={`${styles.Logout} bg-deepBlue  hover:bg-lightBlue min-w-full`}
+                className={` min-w-full md:w-0 rounded-none border-none mb-[30px]  text-deepBlue text-[26px] font-semibold not-italic`}
               >
-                Signup
-              </button>{" "}
+                Register
+              </button>
             </Link>
           </div>
         </div>
@@ -159,7 +162,7 @@ const Header = () => {
           onClose={handleCartClose}
         />
       )}
-    </div>
+    </>
   );
 };
 

@@ -50,7 +50,7 @@ export default function VendorHome() {
                                                 <CreditCardIcon />
                                             </div>
                                             <Typography gutterBottom variant="h5" component="div" sx={{ color: "#ffffff" }}>
-                                                ₦<CountUp delay={0.2} end={getEarnings} duration={0.6} />
+                                                ₦<CountUp delay={0.2} end={Number(getEarnings)} duration={0.6} />
                                             </Typography>
                                             <Typography gutterBottom variant="body2" component="div" sx={{ color: "#ccd1d1" }}>
                                                 Total Earning
@@ -63,7 +63,7 @@ export default function VendorHome() {
                                                 <LocalMallIcon />
                                             </div>
                                             <Typography gutterBottom variant="h5" component="div" sx={{ color: "#ffffff" }}>
-                                                <CountUp delay={0.2} end={getOrders} duration={0.6} />
+                                                <CountUp delay={0.2} end={Number(getOrders)} duration={0.6} />
                                             </Typography>
                                             <Typography gutterBottom variant="body2" component="div" sx={{ color: "#ccd1d1" }}>
                                                 Total Orders
@@ -80,7 +80,7 @@ export default function VendorHome() {
                                                 <LocalMallIcon />
                                             </div>
                                             <Typography gutterBottom variant="h5" component="div" sx={{ color: "#ffffff" }}>
-                                                ₦<CountUp delay={0.2} end={getRevenue} duration={0.6} />
+                                                ₦<CountUp delay={0.2} end={Number(getRevenue)} duration={0.6} />
                                             </Typography>
                                             <Typography gutterBottom variant="body2" component="div" sx={{ color: "#ccd1d1" }}>
                                                 Total Revenue

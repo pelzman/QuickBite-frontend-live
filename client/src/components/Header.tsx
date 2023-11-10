@@ -17,7 +17,7 @@ import "./cartmodal.css";
 const Header = () => {
   const { isEmpty, totalItems } = useCart();
 
- 
+
   const [collapse, setCollapse] = useState(true);
 
   const toggleButton = () => setCollapse(!collapse);
@@ -67,7 +67,7 @@ const Header = () => {
           <div className={styles.flexProfile}>
             <div className="flex-icon">
               <img src={ProfileImg} alt="" className={styles.profileImg} />
-               <p style={{fontSize:"18px", fontWeight:"normal", marginInline:"auto"}}>{`${parsedUserData.data.firstname} ${ parsedUserData.data.lastname[0]}.`}</p>
+              <p style={{ fontSize: "18px", fontWeight: "normal", marginInline: "auto" }}>{`${parsedUserData.data.firstname} ${parsedUserData.data.lastname[0]}.`}</p>
             </div>
             <button>
               <i className="fa fa-angle-down" onClick={toggle}></i>
@@ -152,9 +152,8 @@ const Header = () => {
         </div>
 
         <div
-          className={`${
-            collapse ? styles.mobileView : ""
-          } mt-20 md:hidden bg-deepBlue`}
+          className={`${collapse ? styles.mobileView : ""
+            } mt-20 md:hidden bg-deepBlue`}
         >
           <div className=" sm:hidden w-auto sm:self-center left-6 right-6 drop-shadow-md ">
             {/* <a href="#" className="mx-auto">Vendors</a> */}
@@ -213,11 +212,10 @@ const Header = () => {
         </div>
 
         <div
-          className={`${
-            collapse ? styles.mobileView : ""
-          } mt-20 md:hidden bg-deepBlue`}
+          className={`${collapse ? styles.mobileView : ""
+            } mt-20 md:hidden bg-deepBlue`}
         >
-          
+
         </div>
       </nav>
       {cartVisibility && <ShoppingCart onClose={handleCartClose} />}

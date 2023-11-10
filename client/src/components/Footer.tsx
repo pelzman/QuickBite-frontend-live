@@ -1,39 +1,43 @@
 // import React from 'react'
-import styles from "../styles/footer.module.css"
-import Logo from "../assets/Logo.svg"
-
+import Logo from "../assets/Logo.svg";
+import { Link } from "react-router-dom";
 const Footer = () => {
-  return (
-     <div className={styles.footerContainer}>
-        <div>
-       <img src={Logo} alt="" className={styles.footerLogo}/>
-        </div>
-       
-   
-    <div className={styles.footerLeft}>
-    <div className={styles.footerFeatures}>
-        <h5 className={styles.socialText}>Social</h5>
-       <a className={styles.link1} href="http://"> <p>Facebook</p></a>
-       <a className={styles.link1}href="http://"><p>Instagram</p></a> 
-       <a className={styles.link1} href="http://"><p>LinkedIn</p></a>
-        
-    </div>
-    <div className={styles.footerFeatures}>
-        <h5 className={styles.help}>Get help</h5>
-        <p className={styles.help}>Partner with us</p>
-        <p className={styles.help}>Add your resturant</p>
-        <p className={styles.help}> Sign up to deliver</p>
-    </div>
-    <div>
-        <h5 className={styles.footerbenefit}>Read our Blog</h5>
-        <p className={styles.footerbenefit}>Buy gift card</p>
-        <p className={styles.footerbenefit}>Restuarants nearby</p>
-        <p className={styles.footerbenefit}>save on first order</p>
-    </div> 
-    </div>
- 
-     </div>
-  )
-}
+    return (
+        <div className="bg-[#000] mt-[50px] py-[20px] ">
+            <div>
+                <Link to="/"><img src={Logo} alt="" className="w-[100px] h-[100px]" /></Link>
+            </div>
 
-export default Footer
+            <div className="footerLeft mx-6 space-y-4 md:space-y-0 md:flex md:gap-16 md:items-center md:justify-end">
+                <div className="footerFeatures">
+                    <h5 className="text-[#836868] text-[20px] md:text-[i6px]leading-[22px] font-bold">Social</h5>
+                    <a className="no-underline " href="http://">
+                        <p className="text-[#FFF] text-[16px] font-normal not-italic">Facebook</p>
+                    </a>
+                    <a className="no-underline " href="http://">
+                        <p className="text-[#FFF] text-[16px] font-normal not-italic">Instagram</p>
+                    </a>
+                    <a className="no-underline" href="http://">
+                        <p className="text-[#FFF] text-[16px] font-normal not-italic">LinkedIn</p>
+                    </a>
+                </div>
+
+                <div className="footerFeatures">
+                    <h5 className="text-[#836868] text-[20px] md:text-[i6px]leading-[22px] font-bold">Get help</h5>
+                    <p className="text-[#FFF] text-[16px] font-normal not-italic">Partner with us</p>
+                    <p className="text-[#FFF] text-[16px] font-normal not-italic">Add your restaurant</p>
+                    <p className="text-[#FFF] text-[16px] font-normal not-italic">Sign up to deliver</p>
+                </div>
+
+                <div>
+                    <h5 className="text-[#836868] text-[20px] md:text-[16px]leading-[22px] font-bold">Read our Blog</h5>
+                    <p className="text-[#FFF] text-[16px] font-normal not-italic">Buy gift card</p>
+                    <p className="text-[#FFF] text-[16px] font-normal not-italic">Restaurants nearby</p>
+                    <p className="text-[#FFF] text-[16px] font-normal not-italic">Save on the first order</p>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Footer;

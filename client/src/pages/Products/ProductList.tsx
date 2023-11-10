@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -29,6 +30,7 @@ interface Column {
     label: string;
     minWidth?: number;
     align?: "right" | "left" | "center";
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     format?: any//((value: number) => string) | undefined
 }
 
@@ -63,7 +65,7 @@ function createData(
 
 export default function ProductList() {
     const dispatch = useAppDispatch();
-    const { allFoodCount, isLoading } = useAppSelector(
+    const { allFoodCount } = useAppSelector(
         (state) => state.allFoodCount
     );
     // console.log(isLoading)
@@ -97,7 +99,7 @@ export default function ProductList() {
     };
 
     const [showEditModal, setShowEditModal] = useState(false);
-    const [selectedRow, setSelectedRow] = useState<Data | null>(null);
+    const [, setSelectedRow] = useState<Data | null>(null);
 
     const handleEditClick = (row: Data) => {
         setSelectedRow(row);

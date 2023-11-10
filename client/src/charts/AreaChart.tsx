@@ -11,7 +11,7 @@ export const options = {
 
 export default function AreaChart() {
     const dispatch = useAppDispatch();
-    const { earningRevenue, isLoading } = useAppSelector((state) => state.earningRev)
+    const { earningRevenue } = useAppSelector((state) => state.earningRev)
 
     console.log('aracChart', earningRevenue)
     useEffect(() => {

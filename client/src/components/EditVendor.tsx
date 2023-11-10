@@ -3,9 +3,9 @@ import { useState, ChangeEvent, MouseEvent, useEffect, FormEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/hooks'; //
 import { updateVendorProfile } from '../slices/vendorSlice';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import '../styles/EditVendor.css'
-import { showErrorToast, showSuccessToast } from "../utility/toast";
+import { showErrorToast } from "../utility/toast";
 import "../styles/index.css"
 
 
@@ -93,7 +93,7 @@ const  EditVendor  = ({handleClose}:any) => {
     };
     
     setLoading(true)
-    const data = await dispatch(updateVendorProfile(payload)).unwrap()
+     await dispatch(updateVendorProfile(payload)).unwrap()
     
     //showSuccessToast(data.message);
     setLoading(false)

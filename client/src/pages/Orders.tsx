@@ -23,6 +23,7 @@ interface Column {
   label: string;
   minWidth?: number;
   align?: "right" | "left" | "center";
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   format?: any//((value: number) => string) | undefined
 }
 
@@ -63,8 +64,8 @@ function createData(
   quantity: number,
   amount: number,
   status: string,
-  orderId: string
-  // isPaid: boolean,
+  orderId: string,
+  // isPaid: boolean, // Add this parameter
 ): Data {
   return {
     food_name,
@@ -73,34 +74,35 @@ function createData(
     status,
     // isPaid,
     actions: "actions",
-    orderId
+    orderId,
   };
 }
 
 export default function VendorOrder() {
   const dispatch = useAppDispatch();
-  const { vendorOrder, isLoading } = useAppSelector(
+  const { vendorOrder } = useAppSelector(
     (state) => state.vendorOrder
   );
 
   React.useEffect(() => {
     dispatch(getOrderCount());
   }, [dispatch]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rows = vendorOrder?.map((order: any) =>
-    createData(
-      order.name,
-      order.quantity,
-      order.itemTotal,
-      order.status,
-      order.id
-      // order.isPaid
-    )
-  );
+  createData(
+    order.name,
+    order.quantity,
+    order.itemTotal,
+    order.status,
+    order.id,
+    // order.isPaid 
+  )
+);
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [selectedRow, setSelectedRow] = useState<Data | null>(null);
+  const [, setSelectedRow] = useState<Data | null>(null);
 
     const handleEditClick = (row: Data) => {
         setSelectedRow(row);
@@ -120,6 +122,7 @@ export default function VendorOrder() {
                 toast.success(data.message)
                 dispatch(getOrderCount());
                 
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               } catch (error:any) {
                 if (error.response) {
                   return toast.error(error.response.data.message);
@@ -175,7 +178,7 @@ export default function VendorOrder() {
                         <TableRow hover role="checkbox" tabIndex={-1} key={row.food_name}>
                           {columns.map((column) => {
                             //console.log("col", column);
-                            const value = row[column.id];
+                            const value = row[column.id as keyof Data];
                             return (
                               <TableCell key={column.id} align={column.align}>
                                 {column.id === "actions" ? (
@@ -211,7 +214,7 @@ export default function VendorOrder() {
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
           </Paper>
-            {showEditModal && <OrdersModal onClose={() => setShowEditModal(false)} isOpen={true} />}
+            {showEditModal && <OrdersModal onClose={() => setShowEditModal(false)} id={""} foodid={""} food_name={""} quantity={0} amount={0} status={""} userId={""} vendorId={""} isPaid={false} address={""}  />}
         </Box>
       </Box>
     </>

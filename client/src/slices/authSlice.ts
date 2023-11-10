@@ -140,7 +140,7 @@ export const authSlice = createSlice({
     });
     builder.addCase(updateUserProfile.fulfilled, (state, action) => {
       // Add user to the state array
-      const newUser = action.payload.data;
+      action.payload.data;
       state.user = action.payload.data;
       toast(action.payload.message);
    

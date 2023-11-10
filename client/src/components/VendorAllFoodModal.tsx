@@ -15,15 +15,16 @@ interface Order {
   vendorId: string;
   isPaid: boolean;
   address: string;
+  onClose: ()=>void
 }
 
-const OrdersModal = () => {
+const OrdersModal = ({onClose}:Order) => {
   const dispatch = useAppDispatch();
-  const { singleOrder, isLoading } = useAppSelector(
+  const { singleOrder } = useAppSelector(
     (state) => state.getSingleOrder
   );
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen] = useState(false);
   const [status, setStatus] = useState("pending");
   console.log('single', singleOrder);
 
@@ -32,7 +33,7 @@ const OrdersModal = () => {
   }, [dispatch]);
 
 
-  const order: Order = {
+  const order = {
     food_name: "FUFU",
     amount: 2000,
     address: "123 Okorohmi, Benin City",
@@ -46,14 +47,14 @@ const OrdersModal = () => {
   };
   // order: React.SetStateAction<null>
 
-  const handleModalOpen = () => {
-    // setSelectedOrder(order);
-    setIsModalOpen(true);
-  };
+  // const handleModalOpen = () => {
+  //   // setSelectedOrder(order);
+  //   setIsModalOpen(true);
+  // };
 
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
+  // const handleModalClose = () => {
+  //   setIsModalOpen(false);
+  // };
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setStatus(e.target.value);
@@ -73,14 +74,14 @@ const OrdersModal = () => {
       <div>
         <button
           className="px-4 py-2 bg-blue-500 text-white rounded"
-          onClick={() => handleModalOpen()}
+          // onClick={() => handleModalOpen()}
         >
           View Order: {}
         </button>
       </div>
       {/* ))} */}
 
-      <Modal isOpen={isModalOpen} onClose={handleModalClose}>
+      <Modal isOpen={isModalOpen} onClose={onClose}>
         {isModalOpen && (
           <>
             <h2 className="details">Order Details</h2>
@@ -108,7 +109,7 @@ const OrdersModal = () => {
                 Save
               </button>
             </form>
-            <button className="close-modal" onClick={handleModalClose}>
+            <button className="close-modal" onClick={onClose}>
               Close Modal
             </button>
           </>

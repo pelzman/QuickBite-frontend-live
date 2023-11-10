@@ -1,15 +1,8 @@
 import { useLocation, Navigate } from "react-router-dom";
-
-// export const ProtectRoute = ({children}:any) => {
-//     const location = useLocation()
-//     console.log(location)
-//     const isAuthenticated:any = localStorage.getItem('token')
-//     !isAuthenticated || isAuthenticated == undefined ? <Navigate to="/login"/> : children state={{from:location} }/>
-    
-//     return children
-// }
- // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const ProtectRoute = ({ children }:any) => {
+interface Props {
+  children:React.ReactNode
+}
+export const ProtectRoute = ({ children }:Props) => {
   const location = useLocation();
 
   const isAuthenticated = localStorage.getItem('token');

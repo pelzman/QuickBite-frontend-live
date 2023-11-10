@@ -2,7 +2,7 @@
 import  { MouseEventHandler, useEffect, useState } from 'react';
 
 import styles from "../styles/newQuickbite.module.css"
-import Image from "../assets/restaurant-background.jpg";
+// import Image from "../assets/restaurant-background.jpg";
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { getPopularRestaurant} from '../slices/popularRestaurantSlice';
