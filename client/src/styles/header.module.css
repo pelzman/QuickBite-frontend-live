@@ -1,11 +1,10 @@
-
-  .navbar{
+.navbar {
     width: 100%;
-    position:fixed;
+    position: fixed;
     top: 0;
-    left: 0; 
+    left: 0;
     /* padding: 60px 100px; */
-    background: rgb(237,240,235);
+    background: rgb(237, 240, 235);
     height: 100px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     z-index: 100;
@@ -13,42 +12,46 @@
     /* @media (min-width:768px) {
        max-width: 100%  
     } */
-  }
+}
 
-  .flex-icon{
-     display:flex;
+.flex-icon {
+    display: flex;
     flex-direction: column;
     text-align: center
-  }
+}
 
-  .profileImg{
-    width:50px;
+.profileImg {
+    width: 50px;
     height: 50px;
     text-align: center;
 
-  }
-  .flexProfile{
+}
+
+.flexProfile {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap:20px;
+    gap: 20px;
+
     @media (min-width:481px) and (max-width:767px) {
-        display: none; 
+        display: none;
     }
 
     @media (max-width:480px) {
-       display: none; 
+        display: none;
     }
-    
-  }
-  .overlay{
+
+}
+
+.overlay {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, .5);
-    @media  (max-width:480px) {
+
+    @media (max-width:480px) {
         height: 30%;
     }
 }
@@ -56,22 +59,23 @@
 .logo {
     font-family: "Poppins";
     margin-top: -20px;
-     height:100px;
-     width:100px;
-     @media  (max:480px) {
-    width: 200px;
-    height: 200px
+    height: 100px;
+    width: 100px;
+
+    @media (max-width:480px) {
+        width: 200px;
+        height: 200px
     }
 
 
-    
-     /* line-height: 52px ; */
-  
 
-    
+    /* line-height: 52px ; */
+
+
+
 }
 
-.SignUp{
+.SignUp {
     padding: 10px 30px;
     font-size: 18px;
     line-height: 28px;
@@ -79,10 +83,11 @@
     color: #ffff;
     border-radius: 10px;
     margin-left: 60px;
-   
-    
-}  
-.SignIn{
+
+
+}
+
+.SignIn {
     padding: 10px 30px;
     font-size: 18px;
     line-height: 28px;
@@ -92,15 +97,16 @@
     border: 1px solid;
     margin-right: -20px;
     /* margin-bottom: 20px; */
-   
-   
-    
+
+
+
 }
-.SignUp:hover{
+
+.SignUp:hover {
     background-color: #1a512e9f;
 }
 
-.Logout{
+.Logout {
     padding: 10px 30px;
     font-size: 18px;
     line-height: 28px;
@@ -108,47 +114,53 @@
     color: #ffff;
     border-radius: 10px;
     margin-left: 60px;
+
     @media (max-width:480px) {
-       margin-inline: auto;  
-      
+        margin-inline: auto;
+
     }
-   
-    
-}  
-.Logout:hover{
+
+
+}
+
+.Logout:hover {
     background-color: #1a512e9f;
 }
 
-    
 
-.hamburger{
+
+.hamburger {
     cursor: pointer;
-    width:34px;
+    width: 34px;
     height: 34px;
     transition: all, 0.25s;
-    position: relative; 
+    position: relative;
     font-size: 40px;
-    @media (min-width:200px) and (max-width:576px) {
-        display: block;  
-                
-    padding-left: 60px;
-    color: #1A512E;
-    padding-left: -100px;
-        
-      }
 
-    
+    @media (min-width:200px) and (max-width:576px) {
+        display: block;
+
+        padding-left: 60px;
+        color: #1A512E;
+        padding-left: -100px;
+
+    }
+
+
 }
-.mobileView{
+
+.mobileView {
     display: none;
 
 }
-.backVideo{
+
+.backVideo {
     position: absolute;
-    bottom:0;
+    bottom: 0;
     z-index: -1;
 }
-.content{
+
+.content {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -156,11 +168,13 @@
 
 
 }
-.selectBtnContainer{
+
+.selectBtnContainer {
     margin-top: 20px;
 }
-.selectBtn{
-    background-color: rgb(24,32,74);
+
+.selectBtn {
+    background-color: rgb(24, 32, 74);
     padding: 10px 20px;
     border-radius: 20px;
     margin-left: 20px;
@@ -169,28 +183,30 @@
     font-weight: 600;
     color: #ffff;
     border-radius: 30px;
-  
+
     margin-bottom: 20px;
-  
-   
-    
+
+
+
 }
-.selectBtn1{
-    background-color:#fff;
+
+.selectBtn1 {
+    background-color: #fff;
     padding: 10px 20px;
     border-radius: 20px;
     margin-left: 20px;
     font-size: 18px;
     line-height: 28px;
     font-weight: 600;
-    color:rgb(24,32,74); 
+    color: rgb(24, 32, 74);
     border-radius: 30px;
     border: 1px solid;
-    margin-bottom: 20px;  
-    
+    margin-bottom: 20px;
+
 }
-.selectBtn2{
-    background-color: rgb(24,32,74);
+
+.selectBtn2 {
+    background-color: rgb(24, 32, 74);
     padding: 20px 30px;
     border-radius: 20px;
     margin-left: 20px;
@@ -198,38 +214,41 @@
     line-height: 28px;
     font-weight: 600;
     color: #ffff;
-    border-radius: 10px;  
+    border-radius: 10px;
     margin-bottom: 20px;
-    
+
 }
-.formwrapper{
- position: relative;
+
+.formwrapper {
+    position: relative;
 }
-.inputBtn{
+
+.inputBtn {
     width: 400px;
     padding: 20px;
     border-radius: 10px;
-    outline: none;    
+    outline: none;
 }
-.search{
+
+.search {
     width: 20px;
     height: 20px;
     position: absolute;
     right: 150px;
-    top:25px
+    top: 25px
 }
 
 
-@media (max-width:768px){
-/*  */
+@media (max-width:768px) {
+    /*  */
 
 }
 
-.dropdown_link{
+.dropdown_link {
     text-decoration: none;
-    color:#fff;
-    
-    
+    color: #fff;
+
+
 }
 
 .dropdown {
@@ -238,60 +257,62 @@
 
 .cancel_link {
     text-decoration: none;
-    
-    
+
+
 }
 
-.dropdown_link:hover{
+.dropdown_link:hover {
     background-color: gray;
-    color:#fff;
+    color: #fff;
 }
 
-.menu { 
-background-color: #0c4a24;
-color:#fff;
-border: 3px solid gray;
-border-radius: 10px;
-margin: auto;
-width: 200px;
-height: 100px;
+.menu {
+    background-color: #0c4a24;
+    color: #fff;
+    border: 3px solid gray;
+    border-radius: 10px;
+    margin: auto;
+    width: 200px;
+    height: 100px;
 
 
 
 }
 
-.menu:hover{
+.menu:hover {
     background-color: #0c4a24;
     transform: scale(1.2);
     color: #ffff;
     width: 200px;
     height: 100px;
-    
+
 }
 
 
-@media (min-width:480px){
+@media (min-width:480px) {
 
-   /* .backVideo{
+    /* .backVideo{
     display: ;
    }  */
-   .navbar{
-    width: 100%;
-    padding: 0 0px;
-    
+    .navbar {
+        width: 100%;
+        padding: 0 0px;
 
-   }
-   .signup{
-    margin: 0;
-    padding: 30px;
-   }
 
-   .hamburger{
-    margin-left: 60px;
-    color: #1A512E;
-  
-}
-/* .logo{
+    }
+
+    .signup {
+        margin: 0;
+        padding: 30px;
+    }
+
+    .hamburger {
+        margin-left: 60px;
+        color: #1A512E;
+
+    }
+
+    /* .logo{
     margin-left: -50px;
 } */
 }

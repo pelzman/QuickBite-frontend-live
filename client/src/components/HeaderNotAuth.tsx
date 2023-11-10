@@ -136,10 +136,10 @@ const Header = () => {
         >
           <div className=" sm:hidden w-full px-[50px]  space-y-3 ">
             {/* <a href="#" className="mx-auto">Vendors</a> */}
-            <Link to="/login">
+            <Link to="/login"> min-w-full md:w-0 rounded-none border-none mb-[30px] mt-[20px] text-deepBlue text-[26px] font-semibold not-italic
 
               <button
-                className={` min-w-full md:w-0 rounded-none border-none mb-[30px] mt-[20px] text-deepBlue text-[26px] font-semibold not-italic`}
+                className={``}
               >
                 Login
               </button>
