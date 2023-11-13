@@ -96,7 +96,7 @@ const Header = () => {
           </div>
           <div className="flex items-center mt-[-70px] ml-[180px] ">
 
-            <div className=" md:hidden   ">
+            <div className="relative md:hidden flex justify-center items-center">
               {!isEmpty && (
                 <div className="item-count flex justify-start items-start absolute left-6 ">
                   <span>{totalItems}</span>

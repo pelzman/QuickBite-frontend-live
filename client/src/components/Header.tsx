@@ -144,10 +144,10 @@ const Header = () => {
 
             <div className="flex items-center mt-[-100px] pl-[45px] ">
 
-              <div className=" md:hidden  flex justify-center items-center">
+              <div className="relative  md:hidden  flex justify-center items-center ">
                 {!isEmpty && (
                   <div className="item-count flex justify-start items-start absolute left-6 ">
-                    <span>{totalItems}</span>
+                    <span className="">{totalItems}</span>
                   </div>
                 )}
                 <GiShoppingBag
