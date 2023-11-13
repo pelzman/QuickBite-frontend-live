@@ -54,11 +54,11 @@ const Header = () => {
     <>
       <nav className={`${styles.navbar} `}>
         <div
-          className={`flex sm:items-center md:space-x-20 md:flex items-center justify-between md:mx-20 ${"animate__animated animate__backInDown"}`}
+          className={` md:space-x-20 md:flex md:items-center md:justify-between md:mx-20  ${"animate__animated animate__backInDown"}`}
         >
           <Link to="/">
             <div className={``}>
-              <img src={Logo} alt="" className={`pr-3 p-[20px] w-[100px] h-[100px]`} />
+              <img src={Logo} alt="" className={` pr-3 p-[20px] w-[100px] h-[100px]`} />
             </div>
           </Link>
 
@@ -67,54 +67,64 @@ const Header = () => {
             <Link to="/login">
               {" "}
               <button
-                className={`${styles.SignIn} bg-veryLightGray hover:bg-deepBlue hover:text-white`}
+                className={`${styles.SignIn} bg-deepBlue`}
               >
                 Login
               </button>
             </Link>
             <Link to="/register">
-              <button className={`${styles.SignUp} bg-deepBlue `}>
+              <button className={`${styles.SignUp}  `}>
                 Register
               </button>
             </Link>
 
-            <div className="cartf ">
+            <div className="flex items-center mt-[-100px] pl-[45px] ">
+
+              <div className=" md:hidden  flex justify-center items-center">
+                {!isEmpty && (
+                  <div className="item-count flex justify-start items-start absolute left-6 ">
+                    <span>{totalItems}</span>
+                  </div>
+                )}
+                <GiShoppingBag
+                  size={35}
+                  className="the-shop   mr-[40px]"
+                  onClick={() => setCartVisibility(!cartVisibility)}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center mt-[-70px] ml-[180px] ">
+
+            <div className=" md:hidden   ">
               {!isEmpty && (
-                <div className="item-count ">
+                <div className="item-count flex justify-start items-start absolute left-6 ">
                   <span>{totalItems}</span>
                 </div>
               )}
               <GiShoppingBag
                 size={35}
-                className="the-shop "
+                className="the-shop   mr-[70px]"
                 onClick={() => setCartVisibility(!cartVisibility)}
               />
             </div>
+
+            <button
+              id="menu-btn"
+              onClick={toggleButton}
+              className={`${styles.hamburger}  hamburger w-20 h-14 md:hidden focus:outline-none lg:hidden mt-[-20px]`}
+            >
+              {collapse ? (
+                <i className="fas fa-bars"></i>
+              ) : (
+                <i className="fas fa-times"></i>
+              )}
+            </button>
+
+
           </div>
 
-          <button
-            id="menu-btn"
-            onClick={toggleButton}
-            className={`${styles.hamburger}  hamburger w-20 h-14 md:hidden focus:outline-none lg:hidden mt-[-40px]`}
-          >
-            {collapse ? (
-              <i className="fas fa-bars"></i>
-            ) : (
-              <i className="fas fa-times"></i>
-            )}
-          </button>
-          <div className="cartf md:hidden">
-            {!isEmpty && (
-              <div className="item-count flex justify-start items-start absolute left-6">
-                <span>{totalItems}</span>
-              </div>
-            )}
-            <GiShoppingBag
-              size={35}
-              className="the-shop mr-[30px] mt-[-20px]"
-              onClick={() => setCartVisibility(!cartVisibility)}
-            />
-          </div>
+
         </div>
 
 
@@ -130,16 +140,13 @@ const Header = () => {
           </div>
         </div>
 
-        <div
-          className={`${collapse ? styles.mobileView : " "
-            } mt-[-60px] md:hidden bg-[#FFF] w-full `}
-        >
+        <div className={`${collapse ? styles.mobileView : ""} mt-20 md:hidden bg-white`} >
           <div className=" sm:hidden w-full px-[50px]  space-y-3 ">
             {/* <a href="#" className="mx-auto">Vendors</a> */}
             <Link to="/login">
 
               <button
-                className={`min-w-full md:w-0 rounded-none border-none mb-[30px] mt-[20px] text-deepBlue text-[26px] font-semibold not-italic`}
+                className={` min-w-full md:w-0 rounded-none border-none mb-[30px] mt-[20px] text-deepBlue text-[26px] font-semibold not-italic`}
               >
                 Login
               </button>
@@ -153,6 +160,7 @@ const Header = () => {
             </Link>
           </div>
         </div>
+
       </nav>
       {cartVisibility && (
         <ShoppingCart

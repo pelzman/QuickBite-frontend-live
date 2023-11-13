@@ -56,7 +56,7 @@ const Header = () => {
   return (
     <div>
       <nav className={`${styles.navbar}  `}>
-        <div className={`flex sm:items-center md:space-x-20 md:flex items-center justify-between md:mx-20 ${"animate__animated animate__backInDown"}`}>
+        <div className={` justify-between items-center md:space-x-20 md:flex md:items-center md:justify-between md:mx-20 ${"animate__animated animate__backInDown"}`}>
           <Link to="/">
             <div className={``}>
               <img src={Logo} alt="" className={` pr-3 p-[20px] w-[100px] h-[100px]`} />
@@ -142,12 +142,25 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="flex justify-between gap-20 items-center mt-[-100px] pl-[45px]">
+            <div className="flex items-center mt-[-100px] pl-[45px] ">
+
+              <div className=" md:hidden  flex justify-center items-center">
+                {!isEmpty && (
+                  <div className="item-count flex justify-start items-start absolute left-6 ">
+                    <span>{totalItems}</span>
+                  </div>
+                )}
+                <GiShoppingBag
+                  size={35}
+                  className="the-shop   mr-[40px]"
+                  onClick={() => setCartVisibility(!cartVisibility)}
+                />
+              </div>
 
               <button
                 id="menu-btn"
                 onClick={toggleButton}
-                className={`${styles.hamburger}  hamburger w-20 h-14 md:hidden focus:outline-none lg:hidden `}
+                className={`${styles.hamburger}  hamburger w-20 h-14 md:hidden focus:outline-none lg:hidden mt-[-20px]`}
               >
                 {collapse ? (
                   <i className="fas fa-bars"></i>
@@ -156,18 +169,6 @@ const Header = () => {
                 )}
               </button>
 
-              <div className="cartf md:hidden">
-                {!isEmpty && (
-                  <div className="item-count flex justify-start items-start absolute left-6">
-                    <span>{totalItems}</span>
-                  </div>
-                )}
-                <GiShoppingBag
-                  size={35}
-                  className="the-shop mr-[30px]"
-                  onClick={() => setCartVisibility(!cartVisibility)}
-                />
-              </div>
 
             </div>
 
@@ -179,12 +180,12 @@ const Header = () => {
         <div
 
           className={`${collapse ? styles.mobileView : ""
-            } relative  mt-[-10px] md:hidden bg-[#FFF] w-full `}
+            } relative  mt-[-10px] md:hidden bg-[#FFF] w-full pl-[20px]`}
         >
           <div className="flex justify-start items-center gap-[20px]" >
 
 
-            <p className=" text-start  mt-[10px] text-deepBlue text-[18px] font-semibold not-italic" >Profiles</p>
+            <p className=" text-start  mt-[10px] text-deepBlue text-[18px] font-semibold not-italic" >Settings</p>
 
             <button>
               <i className="fa fa-angle-down mt-[-60px]" onClick={() => setDropDown1(!dropdown1)}  ></i>
