@@ -56,7 +56,7 @@ const Header = () => {
   return (
     <div>
       <nav className={`${styles.navbar}  `}>
-        <div className={` justify-center items-center sm:items-center md:space-x-20 md:flex md:items-center md:justify-between md:mx-20 ${"animate__animated animate__backInDown"}`}>
+        <div className={`flex sm:items-center md:space-x-20 md:flex items-center justify-between md:mx-20 ${"animate__animated animate__backInDown"}`}>
           <Link to="/">
             <div className={``}>
               <img src={Logo} alt="" className={` pr-3 p-[20px] w-[100px] h-[100px]`} />
@@ -147,7 +147,7 @@ const Header = () => {
               <button
                 id="menu-btn"
                 onClick={toggleButton}
-                className={`${styles.hamburger}  hamburger w-20 h-14 md:hidden focus:outline-none lg:hidden`}
+                className={`${styles.hamburger}  hamburger w-20 h-14 md:hidden focus:outline-none lg:hidden `}
               >
                 {collapse ? (
                   <i className="fas fa-bars"></i>

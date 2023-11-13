@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import styles from "../styles/Navbar.module.css"
 import VideoImg from "../assets/heroNewVideo.mp4"
-import MobileImg from "../assets/newmobileHero1.jpg"
+import Image1 from "../assets/1food.jpg";
+// import MobileImg from "../assets/newmobileHero1.jpg"
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Link } from "react-router-dom"
 import Logo from "../assets/Logo.svg"
@@ -20,7 +21,7 @@ export const Navbar = () => {
       <div className={styles.hero}>
 
         <video src={VideoImg} plays-inline="true" className={`${styles.backVideo} hidden lg:flex`} />
-        <img src={MobileImg} alt="" className={`${styles.MobileImg} lg:hiddeen xl:hidden`} />
+        <img src={Image1} alt="" className={`${styles.MobileImg} lg:hiddeen xl:hidden`} />
         <nav className={`${styles.navbar}  container mx-auto px-10 `} >
           <div className={`flex sm:items-center space-x-20 md:flex items-center justify-between mx-20 ${"animate__animated animate__backInDown"}`}>
             <img src={Logo} alt="" className={`${styles.logo} pr-3 `} />
@@ -33,7 +34,7 @@ export const Navbar = () => {
               <Link to='/login'> <button className={`${styles.SignIn} bg-veryLightGray hover:bg-deepBlue hover:text-white`}>Login</button></Link>
               <Link to="/register"><button className={`${styles.SignUp} bg-deepBlue  hover:bg-lightBlue`}>Register</button></Link>
             </div>
-            <button id="menu-btn" onClick={toggleButton} className={`${styles.hamburger}  hamburger w-20 h-14 md:hidden focus:outline-none lg:hidden`}>
+            <button id="menu-btn" onClick={toggleButton} className={`${styles.hamburger}  hamburger w-20 h-14 md:hidden focus:outline-none lg:hidden mt-[-50px]`}>
               {collapse ? <i className='fas fa-bars'></i> : <i className='fas fa-times'></i>}
             </button>
           </div>

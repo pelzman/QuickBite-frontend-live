@@ -17,7 +17,7 @@ const NewQuickbite = () => {
    useEffect(() => {
       dispatch(getNewFoods())
    }, [dispatch])
-   // const [show, setShow] = useState(true)
+
    const handleClick: MouseEventHandler<HTMLImageElement> = () => {
       setShow(!show)
    }
@@ -41,8 +41,8 @@ const NewQuickbite = () => {
                      <div className={` ${styles.cardContainer}`}>
 
                         {
-                           newFood?.slice(0,3).map((foodNew) => (
-                               <div className={styles.Card}>
+                           newFood?.slice(0, 3).map((foodNew) => (
+                              <div className={styles.Card}>
                                  <div className={styles.cardHead}>
                                     <img src={foodNew.food_image} alt="" className="h-60 w-100" />
                                  </div>
@@ -53,7 +53,7 @@ const NewQuickbite = () => {
                                  <div className={`${styles.divider}  w-70% md: h-0.5 bg-deepBlue`} ></div>
                                  <div className={styles.cardFooter}>
                                     <span className={styles.amount}>
-                                       <Link to="/allvendorfoods"> <button onClick={()=>localStorage.setItem('vendorid', foodNew.vendorId)} className={`${styles.more} p-4 bg-deepBlue rounded-lg mt-7 text-white`}>Order Now</button></Link>
+                                       <Link to="/allvendorfoods"> <button onClick={() => localStorage.setItem('vendorid', foodNew.vendorId)} className={`${styles.more} p-4 bg-deepBlue rounded-lg mt-7 text-white`}>Order Now</button></Link>
                                     </span>
                                     <span className={styles.totalAmount}>N{foodNew.price}</span>
                                  </div>

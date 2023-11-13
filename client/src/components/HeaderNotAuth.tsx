@@ -57,8 +57,8 @@ const Header = () => {
           className={`flex sm:items-center md:space-x-20 md:flex items-center justify-between md:mx-20 ${"animate__animated animate__backInDown"}`}
         >
           <Link to="/">
-            <div className={`${styles.logoContainer}`}>
-              <img src={Logo} alt="" className={`${styles.logo} pr-3 `} />
+            <div className={``}>
+              <img src={Logo} alt="" className={`pr-3 p-[20px] w-[100px] h-[100px]`} />
             </div>
           </Link>
 
@@ -95,7 +95,7 @@ const Header = () => {
           <button
             id="menu-btn"
             onClick={toggleButton}
-            className={`${styles.hamburger}  hamburger w-20 h-14 md:hidden focus:outline-none lg:hidden`}
+            className={`${styles.hamburger}  hamburger w-20 h-14 md:hidden focus:outline-none lg:hidden mt-[-40px]`}
           >
             {collapse ? (
               <i className="fas fa-bars"></i>
@@ -111,7 +111,7 @@ const Header = () => {
             )}
             <GiShoppingBag
               size={35}
-              className="the-shop mr-[30px]"
+              className="the-shop mr-[30px] mt-[-20px]"
               onClick={() => setCartVisibility(!cartVisibility)}
             />
           </div>
@@ -136,10 +136,10 @@ const Header = () => {
         >
           <div className=" sm:hidden w-full px-[50px]  space-y-3 ">
             {/* <a href="#" className="mx-auto">Vendors</a> */}
-            <Link to="/login"> min-w-full md:w-0 rounded-none border-none mb-[30px] mt-[20px] text-deepBlue text-[26px] font-semibold not-italic
+            <Link to="/login">
 
               <button
-                className={``}
+                className={`min-w-full md:w-0 rounded-none border-none mb-[30px] mt-[20px] text-deepBlue text-[26px] font-semibold not-italic`}
               >
                 Login
               </button>
